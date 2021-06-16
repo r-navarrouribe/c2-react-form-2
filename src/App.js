@@ -41,7 +41,11 @@ function App() {
       </header>
       <div className="contenedor">
         {paso === 1 && (
-          <Paso1 avanzaPaso={avanzaPaso} datosPersonales={datosPersonales} />
+          <Paso1
+            avanzaPaso={avanzaPaso}
+            datosPersonales={datosPersonales}
+            setDatosPersonales={setDatosPersonales}
+          />
         )}
         {paso === 2 && (
           <Paso2

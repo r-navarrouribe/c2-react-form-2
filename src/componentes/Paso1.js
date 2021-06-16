@@ -2,14 +2,16 @@ import PropTypes from "prop-types";
 import { useFormulario } from "../hooks/useFormulario";
 
 export const Paso1 = (props) => {
-  const { datosPersonales, avanzaPaso } = props;
+  const { datosPersonales, setDatosPersonales, avanzaPaso } = props;
   const {
     datos: { nombre, apellidos, fechaNacimiento, email },
+    datos,
     setDato,
   } = useFormulario(datosPersonales);
   const enviaPaso = (e) => {
     e.preventDefault();
     avanzaPaso();
+    setDatosPersonales({ ...datos });
   };
   return (
     <>
@@ -71,5 +73,6 @@ Paso1.propTypes = {
     fechaNacimiento: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
+  setDatosPersonales: PropTypes.func.isRequired,
   avanzaPaso: PropTypes.func.isRequired,
 };
